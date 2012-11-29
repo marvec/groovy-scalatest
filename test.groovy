@@ -10,18 +10,8 @@ import groovy.grape.Grape
 import org.scalatest.tools.Runner
 import scala.tools.ant.*
 
-def url = this.class.protectionDomain.codeSource.location
-def toolDir = new File(url.toURI()).getParentFile()
-
-// configure classpath
-def cl = getClass().getClassLoader()
-cl.addClasspath(new File(toolDir, 'src').absolutePath)
-cl.addClasspath(new File(toolDir, 'test').absolutePath)
-cl.addClasspath(new File(toolDir, 'resources').absolutePath)
-
 def ant = new AntBuilder()
 
-//def scalac = new scala.tools.ant.Scalac()
 ant.taskdef(name: 'groovyc', classname: 'org.codehaus.groovy.ant.Groovyc')
 ant.taskdef(resource: 'scala/tools/ant/antlib.xml')
 ant.taskdef(name: 'scalatest', classname: 'org.scalatest.tools.ScalaTestAntTask')
