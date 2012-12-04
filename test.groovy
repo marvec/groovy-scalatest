@@ -28,7 +28,7 @@ ant.scalac(srcdir: 'test', destdir: 'target/test-classes', fork: false) {
       include(name: 'groovy-all-*.jar')
       exclude(name: '*indy*')
     }
-    Grape.resolve(group: 'org.scala-lang', module: 'scala-library', version:'2.9.2').each {
+    Grape.resolve(new HashMap()).each {
       pathelement(location: new File(it).absolutePath)
     }
   }
@@ -42,7 +42,7 @@ ant.scalatest(suite: 'org.jboss.qa.test.SuperUtilSuite') {
       include(name: 'groovy-all-*.jar')
       exclude(name: '*indy*')
     }
-    Grape.resolve(group: 'org.scala-lang', module: 'scala-library', version:'2.9.2').each {
+    Grape.resolve(new HashMap()).each {
       pathelement(location: new File(it).absolutePath)
     }
   }
